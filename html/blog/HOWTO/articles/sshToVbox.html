@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title> How to ssh to Ubuntu that runs in the VirtualBox </title>
+        <link rel="stylesheet" href="../../../../css/main.css"> 
+
+
+    </head>
+
+    <body>
+        <h1>How to ssh to Ubuntu that runs in the VirtualBox</h1>
+      
+        <p> I'm new to Linux, and I was learning how to use ssh, I wanted to try the command, but I didn't want to login to the server of McGill, and unfortunately, that's the only server that I have access to. However, I had installed Ubuntu and Virtual Box, but can I log in to a virtual machine? If I can, how? Then I did some research, I succeeded and had a lot of fun with it, here is how:  </p><br><br>
+      
+      
+        <ol>
+            <li> You need to go to <em>Settings</em> of the machine that you want to connect to, go to <em>Network</em>, set the <em>attached to</em> option to <em>Bridged Adapter</em>. This allows your VM to have a different IP(and some other stuff) than the host and be visible to other machines on the same network. </li>  <br><br>
+          
+            <li> Run Ubuntu, if you want someone else to be able to connect to this VM, you need to create a user account for this user.</li><br><br>
+          
+            <li>Install openssh server by typing this command in terminal <br><br>
+                &emsp;&emsp;&emsp;&emsp; sudo apt-get install openssh-server <br><br>
+            </li>
+            
+            <li> When it is done, type the command ifconfig and write down the IP address.</li><br><br>
+
+            <li>In terminal, type <br><br>
+                &emsp;&emsp;&emsp;&emsp;sudo service ssh start <br><br>
+                and press enter to start the server. start can be replaced by<em> stop, restart, status </em>.
+            </li><br><br>
+
+            <li> In the terminal of the machine to which you want to connect the VM, type<br><br>
+                &emsp;&emsp;&emsp;&emsp;ssh username@IP <br><br>
+
+                The username is the account on Ubuntu, IP is the IP address that we find earlier. The password is the password for the account on Ubuntu.
+            </li><br><br>
+
+        </ol><br><br>
+       
+        <p> This doesn't just work on VM, it also works on real computers, and you can login to a VM from another VM, etc. </p>
+
+         <p> That's it; you're in! Don't forget to close the server when you're done.</p><br><br>
+
+         <p> 2018 Jan 14th</p>
+        
+    </body>
+
+
+
+</html>
